@@ -1,0 +1,9 @@
+{
+  "name": "D.C$ Game Store",
+  "short_name": "D.C$ Store",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0c111b",
+  "theme_color": "#101522",
+  "description": "Sua loja pessoal de jogos retrô."
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101522">
+  <meta name="description" content="Sua loja retrô de jogos com a moeda Daniel Coins.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>D.C$ Game Store</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">D.C$</div><div><strong>Game Store</strong><small>SEU UNIVERSO RETRÔ</small></div></div>
+    <button class="icon-btn" id="installBtn" hidden aria-label="Instalar aplicativo">＋</button>
+  </header>
+
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">PAINEL DO JOGADOR</span>
+        <h1>Bem-vindo à<br><span>sua loja.</span></h1>
+        <p>Escolha seu próximo desafio.</p>
+      </div>
+      <div class="hero-chip">TEMPORADA <b id="seasonLabel">01</b></div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card balance-card"><span>SEU SALDO</span><strong id="balance">2.000</strong><small>D.C$ disponíveis</small></article>
+      <article class="stat-card"><span>JOGOS ATIVOS</span><strong id="activeCount">0/2</strong><small>Limite simultâneo</small></article>
+    </section>
+
+    <nav class="tabs" aria-label="Navegação principal">
+      <button class="tab active" data-tab="store">Loja</button>
+      <button class="tab" data-tab="library">Minha biblioteca</button>
+      <button class="tab" data-tab="wallet">Carteira</button>
+    </nav>
+
+    <section id="storeView" class="view">
+      <div class="section-heading"><div><span class="eyebrow">EDIÇÃO DO MÊS</span><h2>Em destaque</h2></div><span class="pill" id="editionDate">NOV 2026</span></div>
+      <div class="feature-card">
+        <div class="feature-art"><span>✦</span><b>RETRO<br>COLLECTION</b><small>SELEÇÃO ESPECIAL</small></div>
+        <div class="feature-copy"><span class="eyebrow">OFERTAS DA TEMPORADA</span><h3>Novos desafios<br>esperam por você.</h3><p>Use seus D.C$ com estratégia. Você pode manter até dois jogos ativos.</p></div>
+      </div>
+      <div class="section-heading"><div><span class="eyebrow">CATÁLOGO</span><h2>Jogos disponíveis</h2></div></div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="Todos">Todos</button>
+        <button class="filter" data-filter="S">S</button><button class="filter" data-filter="A">A</button>
+        <button class="filter" data-filter="B">B</button><button class="filter" data-filter="C">C</button><button class="filter" data-filter="D">D</button>
+      </div>
+      <div id="gameGrid" class="game-grid"></div>
+    </section>
+
+    <section id="libraryView" class="view" hidden>
+      <div class="section-heading"><div><span class="eyebrow">SEUS DESAFIOS</span><h2>Jogos ativos</h2></div><span class="pill">MÁX. 2</span></div>
+      <div id="activeGames" class="stack-list"></div>
+      <div class="section-heading spaced"><div><span class="eyebrow">COLEÇÃO</span><h2>Comprados</h2></div></div>
+      <div id="ownedGames" class="stack-list"></div>
+    </section>
+
+    <section id="walletView" class="view" hidden>
+      <div class="section-heading"><div><span class="eyebrow">FINANÇAS DO JOGADOR</span><h2>Carteira D.C$</h2></div></div>
+      <article class="wallet-panel"><span>Saldo atual</span><strong id="walletBalance">2.000 D.C$</strong><small>Registre suas recompensas e acompanhe seu histórico.</small></article>
+      <div class="wallet-actions">
+        <label>Descrição<input id="txDescription" placeholder="Ex.: Derrotei um chefe"></label>
+        <label>Valor em D.C$<input id="txAmount" type="number" min="1" placeholder="50"></label>
+        <button class="primary-btn" id="addReward">Adicionar recompensa</button>
+      </div>
+      <div class="section-heading spaced"><div><span class="eyebrow">MOVIMENTAÇÕES</span><h2>Histórico</h2></div></div>
+      <div id="transactions" class="stack-list"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="bottom-item selected" data-tab="store"><span>⌂</span>Loja</button>
+    <button class="bottom-item" data-tab="library"><span>▣</span>Biblioteca</button>
+    <button class="bottom-item" data-tab="wallet"><span>◈</span>Carteira</button>
+  </nav>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
